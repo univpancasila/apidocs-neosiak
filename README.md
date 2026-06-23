@@ -477,13 +477,16 @@ GET /api/user
     "name": "Budi Santoso",
     "username": "1223210001",
     "email": "budi@student.univpancasila.ac.id",
-    "first_name": "Mr. "
+    "first_name": "Mr. ",
+    "photo": "https://storage.univpancasila.ac.id/.../foto.jpg",
+    "photo_thumbnail": "https://storage.univpancasila.ac.id/.../thumb.jpg"
   }
 }
 ```
 
 - Field `email` **hanya muncul** jika access token memiliki scope `get-email`.
 - Field `first_name` dihitung dari `mahasiswa.sex` (`L` → `"Mr. "`, selain itu → `"Mrs. "`).
+- Field `photo` dan `photo_thumbnail` diambil dari `mahasiswa.storage_url` dan `mahasiswa.storage_url_thumbnail` — `null` jika mahasiswa belum pernah upload foto profil (lihat [§4.3](#43-upload-foto-profil-mahasiswa)).
 - Field yang selalu disembunyikan: `fakultas_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, relasi `mahasiswa`.
 
 ---
